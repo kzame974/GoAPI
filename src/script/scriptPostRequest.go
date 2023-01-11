@@ -8,6 +8,7 @@ import (
 )
 
 // Temperature est la structure qui contient les données de la temperature
+// TODO--- penser à en faire un model demain matin code redondant
 type Temperature struct {
 	Time     string  `json:"time"`
 	Location string  `json:"location"`
