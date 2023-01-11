@@ -19,8 +19,13 @@ tester plusieurs cas pour faire une gestion d'erreur
 refacto
 
 //GET
-créer une route GET pour récupérer la donnée
+créer une route GET
+vérifier auth et faire un func pour récupérer les derniers données poussé sous influxdb
+voir si ne fait pas un query en endpoint?
 
+//BUILD
+build et retester
+voir gestion d'erreur global si besoin
 
 //BONUS1
 envoyer des données en hexa depuis postman
