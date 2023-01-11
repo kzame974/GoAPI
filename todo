@@ -1,12 +1,12 @@
 //ENV DE DEVELOPPEMENT
-crée compte influx (déjà fait)//
-refaire un nouveau bucket
-créer le .env juste avec les champs vide pour ex
-mettre le token influx, bucket, dans le .env.dev
-créer un gitignore
-créer l'arbo du projet en routes controller models
-importer le paquet gin
-monter le webserveur dans le main
+crée compte influx (déjà fait)####
+refaire un nouveau bucket####
+créer le .env juste avec les champs vide pour ex####
+mettre le token influx, bucket, dans le .env.dev####
+créer un gitignore####
+créer l'arbo du projet en routes controller models####"
+importer le paquet gin#####
+monter le webserveur dans le main#####
 tester un endpoint sous postman pour vérifier si le webserveur est bien branché
 refactorer si besoin
 
