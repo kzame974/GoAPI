@@ -1,0 +1,35 @@
+//ENV DE DEVELOPPEMENT
+crée compte influx (déjà fait)//
+refaire un nouveau bucket
+créer le .env juste avec les champs vide pour ex
+mettre le token influx, bucket, dans le .env.dev
+créer un gitignore
+créer l'arbo du projet en routes controller models
+importer le paquet gin
+monter le webserveur dans le main
+tester un endpoint sous postman pour vérifier si le webserveur est bien branché
+refactorer si besoin
+
+//POST
+créer une route POST pour envoyer un flux de donnée (en clair pour l'instant)
+créer un validator pour vérifier le format des données envoyé grace à un model définis
+créer une fonction d'authentification pour se brancher au bucket influx
+créer le webservice pour pousser les données sur influx
+tester plusieurs cas pour faire une gestion d'erreur
+refacto
+
+//GET
+créer une route GET pour récupérer la donnée
+
+
+//BONUS1
+envoyer des données en hexa depuis postman
+modifier le validator pour décoder les valeurs hexa au format adéquat pour influx
+
+//BONUS2
+
+
+//DOC
+faire un template postman des différentes routes utilisés
+explicité chaque routes si besoin
+faire un README pour github
