@@ -1,1 +1,4 @@
-installer le package gin
+installer le package gin:
+go get -u github.com/gin-gonic/gin
+
+postman
