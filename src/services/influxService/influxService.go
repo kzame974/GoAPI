@@ -1,10 +1,9 @@
-// TODO ENLEVER MAIN SI ÇA FONCTIONNE
-package main
+package influxService
 
 import (
 	"context"
-	"fmt"
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
+	"github.com/influxdata/influxdb-client-go/v2/api"
 	"log"
 	"os"
 	"time"
@@ -12,14 +11,8 @@ import (
 
 // test envoie de donnée sur influxDB sans méthode post
 func main() {
-	// Création de la connexion à séparer ensuite/////
-	token := os.Getenv("INFLUXDB_TOKEN")
-	url := "https://eu-central-1-1.aws.cloud2.influxdata.com"
-	client := influxdb2.NewClient(url, token)
-	org := os.Getenv("INFLUX_ORG")
-	bucket := "temperature_data"
-	writeAPI := client.WriteAPIBlocking(org, bucket)
 
+	writeAPI := ConnectToInfluxDB()
 	// recupération de la date actuelle
 	now := time.Now()
 
@@ -33,11 +26,20 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Mesure de température envoyée!!! ")
-
 	//Fermeture de la connexion
 	err = writeAPI.Flush(context.Background())
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func ConnectToInfluxDB() api.WriteAPIBlocking {
+	// Création de la connexion à séparer ensuite/////
+	token := os.Getenv("INFLUXDB_TOKEN")
+	url := "https://eu-central-1-1.aws.cloud2.influxdata.com"
+	client := influxdb2.NewClient(url, token)
+	org := os.Getenv("INFLUX_ORG")
+	bucket := "temperature_data"
+
+	return client.WriteAPIBlocking(org, bucket)
 }

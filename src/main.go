@@ -18,7 +18,8 @@ func main() {
 	if errProxy != nil {
 		log.Fatal(errProxy)
 	}
-	routes.UserRoute(router)
+	// gestion de mes routes
+	routes.ConfigureRoutes(router)
 	err := router.Run(":" + port)
 	//err := router.Run(":8083")
 	if err != nil {
