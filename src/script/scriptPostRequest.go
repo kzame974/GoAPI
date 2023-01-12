@@ -4,20 +4,14 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/kzame974/GoAPI/src/models"
 	"net/http"
 )
 
-// Temperature est la structure qui contient les données de la temperature
-// TODO--- penser à en faire un model demain matin code redondant
-type Temperature struct {
-	Time     string  `json:"time"`
-	Location string  `json:"location"`
-	Value    float32 `json:"value"`
-}
-
+// script simple pour envoyer des données dans le body d'un requete POST vers l'endpoint de notre API
 func main() {
 	//Exemple de données
-	data := Temperature{
+	data := models.Temperature{
 		Time:     "2022-01-01T00:00:00Z",
 		Location: "Bathroom",
 		Value:    23.5,
@@ -39,5 +33,5 @@ func main() {
 	defer resp.Body.Close()
 
 	//Affichage de la reponse
-	fmt.Println("POST response status:", resp.StatusCode)
+	fmt.Println("POST response:", resp.StatusCode)
 }
