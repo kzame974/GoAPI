@@ -6,6 +6,7 @@ import (
 	"github.com/kzame974/GoAPI/src/routes"
 	"log"
 	"os"
+	"os/exec"
 )
 
 func main() {
@@ -26,6 +27,10 @@ func main() {
 	// gestion de mes routes
 	routes.ConfigureRoutes(router)
 	err = router.Run(":" + os.Getenv("PORT"))
+
+	url := "http://" + os.Getenv("URL") + ":" + os.Getenv("PORT")
+	// ouverture de l'URL dans le navigateur définis par défaut. Sinon lancer directement localhost:mon_port
+	err = exec.Command("open", url).Start()
 	if err != nil {
 		log.Fatal(err)
 	}
