@@ -9,7 +9,7 @@ import (
 type SensorTemperatureModel struct {
 	Temperature float64
 	Humidity    float64
-	Timestamp   string
+	Timestamp   time.Time
 }
 
 func DecodeHexData(hexData string) (SensorTemperatureModel, error) {
@@ -23,7 +23,7 @@ func DecodeHexData(hexData string) (SensorTemperatureModel, error) {
 
 	// vérifier la longueur des données décodées
 	if len(data) != 16 {
-		return sensorData, fmt.Errorf("donnée hexadécimale trop grande, attendue 16 bytes mais rendu %d", len(data))
+		return sensorData, fmt.Errorf("donnée hexadécimale incorect attendue 16 bytes mais rendu %d", len(data))
 	}
 
 	// extraire les donnée de température et d'humidité à partir des bytes décodés,
@@ -31,7 +31,7 @@ func DecodeHexData(hexData string) (SensorTemperatureModel, error) {
 	//nb: la location n'est pas une valeur que des capteurs peuvent faire, pas pertinent
 	sensorData.Temperature = float64(data[0]) + float64(data[1])/100
 	sensorData.Humidity = float64(data[2]) + float64(data[3])/100
-	sensorData.Timestamp = time.Now().Format(time.RFC3339)
+	sensorData.Timestamp = time.Now()
 
 	return sensorData, nil
 }

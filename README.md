@@ -3,3 +3,5 @@ installer le package gin:
 
 installer le package `influxdb`
 ` go get -u github.com/influxdata/influxdb-client-go/v2`
+installer le package `godotenv`
+go get github.com/joho/godotenv

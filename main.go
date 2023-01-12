@@ -26,7 +26,6 @@ func main() {
 	// gestion de mes routes
 	routes.ConfigureRoutes(router)
 	err = router.Run(":" + os.Getenv("PORT"))
-	//err := router.Run(":8083")
 	if err != nil {
 		log.Fatal(err)
 	}
