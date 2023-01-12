@@ -3,3 +3,5 @@
 .env
 #ide
 .idea
+#build
+GoAPI
